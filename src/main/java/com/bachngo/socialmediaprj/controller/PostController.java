@@ -18,7 +18,7 @@ import com.bachngo.socialmediaprj.service.PostService;
 
 import lombok.AllArgsConstructor;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
 @RequestMapping("/api/posts")
 @AllArgsConstructor
