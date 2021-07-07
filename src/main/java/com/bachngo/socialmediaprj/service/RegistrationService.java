@@ -21,7 +21,6 @@ public class RegistrationService {
 	private final AppUserDetailsService appUserDetailsService;
 	private final ConfirmationTokenService confirmationTokenService;
 	private final EmailSender emailSender;
-	private final AppConfig appConfig;
 	
 	public String register(RegistrationRequest request) {
 		
