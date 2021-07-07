@@ -6,14 +6,12 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.bachngo.socialmediaprj.controller.FriendConnectionController;
 import com.bachngo.socialmediaprj.dto.AppUserResponse;
 import com.bachngo.socialmediaprj.dto.ConnectionResponse;
 import com.bachngo.socialmediaprj.models.AppUser;
 import com.bachngo.socialmediaprj.models.FriendConnection;
 import com.bachngo.socialmediaprj.repository.AppUserRepository;
 import com.bachngo.socialmediaprj.repository.FriendConnectionRepository;
-import com.sun.jdi.connect.spi.Connection;
 
 import lombok.AllArgsConstructor;
 

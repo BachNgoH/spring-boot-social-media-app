@@ -1,8 +1,5 @@
 package com.bachngo.socialmediaprj.dto;
 
-import com.bachngo.socialmediaprj.models.AppUser;
-import com.bachngo.socialmediaprj.models.Post;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

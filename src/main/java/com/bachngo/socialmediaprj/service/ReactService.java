@@ -11,10 +11,9 @@ import com.bachngo.socialmediaprj.models.AppUser;
 import com.bachngo.socialmediaprj.models.Post;
 import com.bachngo.socialmediaprj.models.React;
 import com.bachngo.socialmediaprj.models.ReactStatus;
-import com.bachngo.socialmediaprj.repository.AppUserRepository;
+
 import com.bachngo.socialmediaprj.repository.PostRepository;
 import com.bachngo.socialmediaprj.repository.ReactRepository;
-import com.sun.mail.handlers.text_html;
 
 import lombok.AllArgsConstructor;
 

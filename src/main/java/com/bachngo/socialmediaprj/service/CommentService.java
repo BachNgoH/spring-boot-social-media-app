@@ -11,7 +11,6 @@ import com.bachngo.socialmediaprj.dto.CommentResponse;
 import com.bachngo.socialmediaprj.models.AppUser;
 import com.bachngo.socialmediaprj.models.Comment;
 import com.bachngo.socialmediaprj.models.Post;
-import com.bachngo.socialmediaprj.repository.AppUserRepository;
 import com.bachngo.socialmediaprj.repository.CommentRepository;
 import com.bachngo.socialmediaprj.repository.PostRepository;
 
