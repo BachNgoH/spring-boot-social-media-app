@@ -33,7 +33,7 @@ public class RegistrationService {
 				AppUserRole.USER
 				));
 		
-		String link =  appConfig.getUrl()+"/api/v1/registration/confirm?token="+ token;
+		String link =  "https://springbootsocialmediaprj.herokuapp.com/api/v1/registration/confirm?token="+ token;
 		emailSender.send(request.getEmail(), buildEmail(request.getFirstName(), link));
 		return token;
 	}
