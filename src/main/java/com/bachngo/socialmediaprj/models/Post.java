@@ -52,7 +52,6 @@ public class Post {
 	@OneToMany( mappedBy = "post")
 	private List<React> reacts;
 	
-	@Lob
 	private String content;
 	
 	
