@@ -18,6 +18,12 @@ import com.bachngo.socialmediaprj.service.AppUserDetailsService;
 
 import lombok.AllArgsConstructor;
 
+/**
+ * JwtFilter used to authenticate the jwt token
+ * if the jwt is valid, user access would be allowed
+ * @author Bach
+ *
+ */
 @Component
 @AllArgsConstructor
 public class JwtRequestFilter extends OncePerRequestFilter{
@@ -25,6 +31,9 @@ public class JwtRequestFilter extends OncePerRequestFilter{
 	private AppUserDetailsService userDetailsService;
 	private JwtUtil jwtUtil;
 	
+	/**
+	 * filter method the filter all the incoming requests 
+	 */
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {

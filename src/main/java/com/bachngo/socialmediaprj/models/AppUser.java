@@ -22,10 +22,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * user of the map, extends the UserDetails class
+ * @author Bach
+ *
+ */
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "app_user")
 public class AppUser implements UserDetails{
@@ -112,4 +116,17 @@ public class AppUser implements UserDetails{
 		this.userRole = userRole;
 	}
 
+	public AppUser(Long id, String firstName, String lastName, String email, String password, AppUserRole userRole) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+		this.userRole = userRole;
+
+	}
+	
+	
+	
+	
 }

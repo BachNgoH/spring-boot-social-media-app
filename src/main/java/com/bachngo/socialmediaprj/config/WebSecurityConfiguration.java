@@ -16,6 +16,13 @@ import com.bachngo.socialmediaprj.service.AppUserDetailsService;
 
 import lombok.AllArgsConstructor;
 
+
+/**
+ * security config, allow login and register methods
+ * filter any orther method
+ * @author Bach
+ *
+ */
 @EnableWebSecurity
 @Configuration
 @AllArgsConstructor

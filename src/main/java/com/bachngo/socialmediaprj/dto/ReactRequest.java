@@ -6,7 +6,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+/**
+ * used to react a post(LIKE or DISLIKE a post)
+ * @author Bach
+ *
+ */
 @Getter
 @Setter
 @AllArgsConstructor

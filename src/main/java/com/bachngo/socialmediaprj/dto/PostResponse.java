@@ -8,6 +8,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * used to display posts 
+ * @author Bach
+ *
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -17,7 +22,7 @@ public class PostResponse {
 	
 	private Long postId;
 	private String content;
-	private Instant createdAt;
+	private String createdAt;
 	private Long likeCount;
 	private Long dislikeCount;
 	private String userFirstName;

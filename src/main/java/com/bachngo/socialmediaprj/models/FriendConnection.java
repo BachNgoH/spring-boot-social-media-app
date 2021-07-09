@@ -15,6 +15,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * connection between two users
+ * if there is a connection and it is accepted, the connection status would be "FRIEND"
+ * if there is a connection but not yet acceoted: "REQUESTED"
+ * else "NO CONNECTION"
+ * @author Bach
+ *
+ */
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor

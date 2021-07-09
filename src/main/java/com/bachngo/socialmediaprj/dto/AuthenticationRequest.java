@@ -5,6 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * authentication request, used for login method
+ * @author Bach
+ *
+ */
 @Getter
 @Setter
 @AllArgsConstructor

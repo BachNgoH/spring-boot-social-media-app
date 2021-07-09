@@ -17,6 +17,11 @@ import com.bachngo.socialmediaprj.repository.ReactRepository;
 
 import lombok.AllArgsConstructor;
 
+/**
+ * 
+ * @author Bach
+ *
+ */
 @Service
 @AllArgsConstructor
 public class ReactService {
@@ -25,6 +30,10 @@ public class ReactService {
 	private PostRepository postRepository;
 	private AppUserDetailsService appUserDetailsService;
 
+	/**
+	 * save a new user react 
+	 * @param reactRequest
+	 */
 	public void saveReact(ReactRequest reactRequest) {
 		Post post = postRepository.findById(reactRequest.postId)
 				.orElseThrow(() -> new IllegalStateException("Post not found"));

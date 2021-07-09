@@ -5,6 +5,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * request a new comment with the current user id, post id and text
+ * however, the current user will be used, not the user at requested userId
+ * @author Bach
+ *
+ */
 @Getter
 @Setter
 @AllArgsConstructor

@@ -16,6 +16,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * comment object
+ * @author Bach
+ *
+ */
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor

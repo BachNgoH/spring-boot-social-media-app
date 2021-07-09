@@ -18,7 +18,12 @@ import com.bachngo.socialmediaprj.service.AppUserDetailsService;
 
 import lombok.AllArgsConstructor;
 
-@CrossOrigin
+/**
+ * controller for authentication methods
+ * @author Bach
+ *
+ */
+
 @RestController
 @RequestMapping("/api/v1/auth")
 @AllArgsConstructor
@@ -28,6 +33,17 @@ public class AuthController {
 	private AppUserDetailsService userDetailsService;
 	private JwtUtil jwtUtil;
 
+	/**
+	 * validate users by jwt token
+	 * when the user login, the request will be authenticated 
+	 * then generate
+	 * a jwt token and response back to the user.
+	 * User use this token to authenticate orther requests
+	 * 
+	 * @param authenticationRequest
+	 * @return
+	 * @throws Exception
+	 */
 	@PostMapping
 	public ResponseEntity<?> createAuthToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
 		try {

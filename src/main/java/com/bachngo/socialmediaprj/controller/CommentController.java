@@ -18,7 +18,11 @@ import com.bachngo.socialmediaprj.service.CommentService;
 
 import lombok.AllArgsConstructor;
 
-@CrossOrigin
+/**
+ * user for all comments
+ * @author Bach
+ *
+ */
 @RestController
 @RequestMapping("/api/comment")
 @AllArgsConstructor

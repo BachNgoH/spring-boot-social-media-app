@@ -10,6 +10,12 @@ import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
 
+/**
+ * service to send confirmation email to the user.
+ * when the user click the link on the email, user account will be enabled
+ * @author Bach
+ *
+ */
 @Service
 @AllArgsConstructor
 public class EmailSenderService implements EmailSender{

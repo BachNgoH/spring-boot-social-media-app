@@ -16,7 +16,11 @@ import com.bachngo.socialmediaprj.service.AppUserDetailsService;
 
 import lombok.AllArgsConstructor;
 
-@CrossOrigin
+/**
+ * Controller for retrieving users info
+ * @author Bach
+ *
+ */
 @RestController
 @RequestMapping("/api/users")
 @AllArgsConstructor
@@ -35,6 +39,9 @@ public class AppUserController {
 		return ResponseEntity.status(HttpStatus.OK).body(appUserService.findUserById(userId));
 	}
 	
+	/*
+	 * use to find a user by name
+	 */
 	@GetMapping("/find/{username}")
 	public ResponseEntity<List<AppUserResponse>> getUserByUsername(@PathVariable String username){
 		return ResponseEntity.status(HttpStatus.OK).body(appUserService.findUserByUsername(username));

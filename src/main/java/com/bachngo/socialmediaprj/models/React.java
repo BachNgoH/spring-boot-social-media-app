@@ -16,6 +16,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * react object: contains 3 status: LIKE, DISLIKE, NULL
+ * @author Bach
+ *
+ */
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor

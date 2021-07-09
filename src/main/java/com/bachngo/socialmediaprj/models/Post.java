@@ -1,16 +1,13 @@
 package com.bachngo.socialmediaprj.models;
 
 import java.time.Instant;
-
 import java.util.List;
 
 import javax.persistence.Entity;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -23,6 +20,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Post objects, contains the creator user, comments and all the reacts
+ * could be sorted by "createdAt"
+ * @author Bach
+ *
+ */
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -30,7 +33,7 @@ import lombok.Setter;
 @Setter
 @Builder
 @Table(name="post")
-public class Post {
+public class Post implements Comparable<Post>{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,6 +56,11 @@ public class Post {
 	private List<React> reacts;
 	
 	private String content;
+
+	@Override
+	public int compareTo(Post o) {
+		return o.getCreatedAt().compareTo(createdAt);
+	}
 	
 	
 	

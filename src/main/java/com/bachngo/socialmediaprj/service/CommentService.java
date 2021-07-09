@@ -24,7 +24,10 @@ public class CommentService {
 	private final PostRepository postRepository;
 	private final AppUserDetailsService appUserDetailsService;
 	
-	
+	/**
+	 * save a new comment
+	 * @param commentRequest
+	 */
 	public void saveComment(CommentRequest commentRequest) {
 		
 		AppUser user = appUserDetailsService.getCurrentUser();
@@ -37,6 +40,11 @@ public class CommentService {
 		commentRepository.save(newComment);
 	}
 	
+	/**
+	 * get all comments of the post and then map it to the comment response
+	 * @param postId
+	 * @return the list of comments response
+	 */
 	public List<CommentResponse> getAllCommentOfAPost(Long postId){
 		Post post = postRepository.findById(postId)
 				.orElseThrow(() -> new IllegalStateException("post not found"));

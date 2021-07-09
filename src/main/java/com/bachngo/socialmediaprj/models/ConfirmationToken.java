@@ -17,6 +17,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * confirmation token sent to the user when the user register.
+ * NOT the jwt token
+ * @author Bach
+ *
+ */
 @Getter
 @Setter
 @NoArgsConstructor

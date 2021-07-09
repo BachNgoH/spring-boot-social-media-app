@@ -15,6 +15,11 @@ import com.bachngo.socialmediaprj.repository.FriendConnectionRepository;
 
 import lombok.AllArgsConstructor;
 
+/**
+ * service for friend connection
+ * @author Bach
+ *
+ */
 @Service
 @AllArgsConstructor
 public class FriendConnectionService {
@@ -22,7 +27,8 @@ public class FriendConnectionService {
 	private final FriendConnectionRepository friendConnectionRepository;
 	private final AppUserDetailsService appUserDetailsService;
 	private final AppUserRepository appUserRepository;
-
+	private final ChatService chatService;
+	
 	public void sendFriendRequest(Long requestdeeId) {
 		AppUser requestdee = appUserRepository.findById(requestdeeId)
 				.orElseThrow(() -> new IllegalStateException("User not Found"));
@@ -51,6 +57,8 @@ public class FriendConnectionService {
 				.orElseThrow(() -> new IllegalStateException("Connection Not Found!"));
 		connection.setAccepted(true);
 		friendConnectionRepository.save(connection);
+			
+		chatService.createNewChatBox(requestderId);
 	}
 
 	public void sendUnfriendRequest(Long requestdeeId) {
@@ -123,6 +131,23 @@ public class FriendConnectionService {
 					.userId(friend.getId()).build());
 		}
 		return responses;
+	}
+	
+	public List<AppUser> findAllFriendsOfUserInternal(){
+		AppUser currentUser = appUserDetailsService.getCurrentUser();
+		List<FriendConnection> connections = friendConnectionRepository
+				.findAllByRequestderAndAccepted(currentUser, true);
+		List<FriendConnection> connectionsReversed = friendConnectionRepository
+				.findAllByRequestdeeAndAccepted(currentUser, true);
+		List<AppUser> friends = new ArrayList<AppUser>();
+		for(FriendConnection connection: connections) {
+			friends.add(connection.getRequestdee());
+		}
+		for(FriendConnection connection: connectionsReversed) {
+			friends.add(connection.getRequestder());
+		}
+		
+		return friends;
 	}
 
 	public List<AppUserResponse> findAllRequestOfUser() {

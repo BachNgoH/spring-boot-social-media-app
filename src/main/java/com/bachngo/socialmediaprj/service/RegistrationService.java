@@ -6,7 +6,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.bachngo.socialmediaprj.config.AppConfig;
+import com.bachngo.socialmediaprj.config.WebConfig;
 import com.bachngo.socialmediaprj.dto.RegistrationRequest;
 import com.bachngo.socialmediaprj.models.AppUser;
 import com.bachngo.socialmediaprj.models.AppUserRole;
@@ -22,6 +22,13 @@ public class RegistrationService {
 	private final ConfirmationTokenService confirmationTokenService;
 	private final EmailSender emailSender;
 	
+	/**
+	 * registering a new user. 
+	 * save the user to the database with enable: false.
+	 * then send the email with the confirmation link(with the token)
+	 * @param request
+	 * @return
+	 */
 	public String register(RegistrationRequest request) {
 		
 		String token = appUserDetailsService.signUpUser(new AppUser(
@@ -31,8 +38,8 @@ public class RegistrationService {
 				request.getPassword(),
 				AppUserRole.USER
 				));
-		
-		String link =  "https://springbootsocialmediaprj.herokuapp.com/api/v1/registration/confirm?token="+ token;
+		// the token is attached to the link
+		String link =  "http://localhost:8080/api/v1/registration/confirm?token="+ token;
 		emailSender.send(request.getEmail(), buildEmail(request.getFirstName(), link));
 		return token;
 	}
@@ -55,6 +62,12 @@ public class RegistrationService {
 		return "confirmed";
 	}
 	
+	/**
+	 * mail template 
+	 * @param name :of the user
+	 * @param link : confirmation link
+	 * @return
+	 */
 	private String buildEmail(String name, String link) {
         return "<div style=\"font-family:Helvetica,Arial,sans-serif;font-size:16px;margin:0;color:#0b0c0c\">\n" +
                 "\n" +

@@ -18,6 +18,11 @@ import com.bachngo.socialmediaprj.repository.AppUserRepository;
 
 import lombok.AllArgsConstructor;
 
+/**
+ * service for the user-related methods
+ * @author Bach
+ *
+ */
 @Service
 @AllArgsConstructor
 public class AppUserDetailsService implements UserDetailsService {
@@ -26,18 +31,32 @@ public class AppUserDetailsService implements UserDetailsService {
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;
 	private final ConfirmationTokenService confirmationTokenService;
 
+	/**
+	 * load user by the username (email in this situation)
+	 */
 	@Override
 	public AppUser loadUserByUsername(String email) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
 		return appUserRepository.findByEmail(email)
 				.orElseThrow(() -> new UsernameNotFoundException("User with email " + email + " not found"));
 	}
-
+	
+	/**
+	 * get the current user.
+	 * @return
+	 */
 	public AppUser getCurrentUser() {
 		AppUser user = (AppUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		return user;
 	}
 
+	/**
+	 * used to create a new user. 
+	 * when the user register, a confirmation token 
+	 * will be created and saved to the database
+	 * @param user 
+	 * @return
+	 */
 	public String signUpUser(AppUser user) {
 		boolean userExist = appUserRepository.findByEmail(user.getEmail()).isPresent();
 		if(userExist) {
@@ -60,6 +79,11 @@ public class AppUserDetailsService implements UserDetailsService {
 
 	}
 
+	/**
+	 * enable the user
+	 * @param email
+	 * @return
+	 */
 	public boolean enableAppUser(String email) {
 		AppUser appUser = appUserRepository.findByEmail(email)
 				.orElseThrow(() -> new UsernameNotFoundException( "User at Email: "+ email +" Not Found"));
